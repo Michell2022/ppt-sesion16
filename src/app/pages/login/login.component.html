@@ -1,1 +1,52 @@
-<p>login works!</p>
+<div class="w-1/2 mx-auto rounded p-4 shadow-[0px_0px_15px_-2px_rgba(0,0,0,0.2)]">
+    <div>
+        <span>Login</span>
+    </div>
+
+    <form [formGroup]="formLogin" (submit)="send()">
+        <div>
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" id="email" name="email" formControlName="email" placeholder="your-name@gmail.com" required minlength="1" maxlength="250" class="form-control form-control-sm" [class.is-invalid]="email.invalid && (email.dirty || email.touched)">
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-feedback">
+                <div *ngIf="email.errors?.['required']">
+                    Este campo es obligatorio.
+                </div>
+                <div *ngIf="email.errors?.['minlength']">
+                    Este campo debe tener al menos 1 carácter.
+                </div>
+                <div *ngIf="email.errors?.['maxlength']">
+                    Este campo debe tener como máximo 250 caracteres.
+                </div>
+                <div
+                    *ngIf="!email.errors?.['required'] && !email.errors?.['minlength'] && !email.errors?.['maxlength'] && email.errors?.['emailValidator']">
+                    Formato de correo inválido.
+                </div>
+            </div>
+        </div>
+        <br>
+        <div>
+            <label for="password" class="form-label">Password</label>
+            <input type="password" id="password" name="password" formControlName="password" required minlength="10"
+                class="form-control form-control-sm"
+                [class.is-invalid]="password.invalid && (password.dirty || password.touched)">
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="invalid-feedback">
+                <div *ngIf="password.errors?.['required']">
+                    Este campo es obligatorio.
+                </div>
+                <div *ngIf="password.errors?.['minlength']">
+                    Este campo debe tener al menos 10 caracteres.
+                </div>
+            </div>
+        </div>
+        <br>
+        <div>
+            <input type="checkbox" class="form-check-input">
+            <label for="acceptTerms" class="form-check-label">Remenber me</label>
+        </div>
+        <br>
+        <div>
+            <button class="color-boton__validate" [disabled]="formLogin.invalid" (click)="validate()">Submit</button>
+        </div>
+    </form>
+
+</div>

@@ -1,1 +1,9 @@
-<p>header works!</p>
+<header class="header">
+    <nav class="nav">
+        <a routerLink="/" class="logo nav-link">Certus</a>
+        <ul class="nav__menu">
+            <li [routerLinkActiveOptions]="{exact: true}" routerLinkActive="bg-blue-400 rounded" class="nav-menu__item"><a class="nav-menu__link nav-link" routerLink="/">Home</a></li>
+            <li routerLinkActive="bg-blue-400 rounded" class="nav-menu__item"><a class="nav-menu__link nav-link" routerLink="login">Login</a></li>
+        </ul>
+    </nav>
+</header>

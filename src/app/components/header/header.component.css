@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #0769e9;
+    width: 100%;
+}
+
+header .nav {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header .nav ul {
+    display: flex;
+    align-items: center;
+}
+
+header .nav ul li a{
+    padding: 5px 20px;
+}
+
+.nav-link {
+    color: white;
+}
+
+.logo{
+    font-size: 30px;
+    padding: 15px 25px;
+}
